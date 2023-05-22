@@ -1,0 +1,43 @@
+<app-user-scrollbar></app-user-scrollbar>
+
+<main>
+    <!--<div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Buy</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody class="items" *ngFor="let pack of packs">
+                <tr>
+                    <td>
+                        <button (click)="buyPack(pack.id)">Buy</button>
+                    </td>
+                    <td>{{pack.name}}</td>
+                    <td>{{pack.description}}</td>
+                    <td>{{pack.price}}</td>
+                    <td>{{pack.size}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    -->
+    <h1 class="header">Choose a pack to open</h1>
+    <div class="pack-container">
+        <div appShowCards class ="box">
+            <div>
+                <img src="../../../assets/packs/gold-pack.png" (click)="buyPack(gold_id)">
+            </div>
+            <div>
+                <img src="../../../assets/packs/silver-pack.png" (click)="buyPack(silver_id)">
+            </div>
+            <div>
+                <img src="../../../assets/packs/bronze-pack.png" (click)="buyPack(bronze_id)">
+            </div>
+        </div>
+    </div>
+</main>

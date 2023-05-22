@@ -1,0 +1,9 @@
+<app-admin-scrollbar></app-admin-scrollbar>
+
+<main>
+  <p>Admin page</p><br>
+  <div>
+    <input type="text" name="txt" [(ngModel)]="message" (change)="sendToServer($event)">
+  </div>
+</main>
+
