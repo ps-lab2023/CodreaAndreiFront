@@ -15,8 +15,11 @@ export class getPlayerInfo {
     }
     
     nationalityToCode(nationality: string = ""): string{
-        return countriesJson[nationality as keyof typeof countriesJson].toLowerCase();
-    }
+        if (countriesJson[nationality as keyof typeof countriesJson] != undefined){
+          return countriesJson[nationality as keyof typeof countriesJson].toLowerCase();
+        }
+        return "null";
+      }
     
 
     selectCards(ownedCards: Card[], nrOfPages: number, pageNr: number, 

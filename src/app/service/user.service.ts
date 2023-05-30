@@ -35,6 +35,13 @@ export class UserService {
       JSON.stringify(credentials) ,{headers:{'Content-Type':'application/json'},observe:'response'});
     }
 
+    public register(username: any, name: any, password: any): any {
+        let info = {username: username, name: name, password: password};
+        console.log(info);
+        return this.httpClient.post(this.baseUrl+'/register',
+        JSON.stringify(info), {headers:{'Content-Type':'application/json'},observe:'response'});
+    }
+
     logout(id: bigint): any {
         console.log("logout controller");
         return this.httpClient.get("http://localhost:8082/user/logout?id=" + id);
@@ -61,5 +68,7 @@ export class UserService {
     delete(id: any){
         return this.httpClient.delete(this.baseUrl+"/deleteById?Id=" + id);
     }
+
+
 
 }

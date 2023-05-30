@@ -8,6 +8,7 @@ import { UserPageCrLsComponent } from './user-pages/user-page-cr-ls/user-page-cr
 import { UserPageBuyLsComponent } from './user-pages/user-page-buy-ls/user-page-buy-ls.component';
 import { AdminPageComponent } from './admin-pages/admin-page/admin-page.component';
 import { AdminPageDeleteComponent } from './admin-pages/admin-page-delete/admin-page-delete.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'user-page-buy-ls', component: UserPageBuyLsComponent},
   { path: 'admin-page', component: AdminPageComponent},
   { path: 'admin-page-delete', component: AdminPageDeleteComponent},
+  { path: 'register', component: RegisterComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full'}, // redirect to login page
 ];
 

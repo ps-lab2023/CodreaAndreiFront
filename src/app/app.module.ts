@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,7 @@ import { AdminPageDeleteComponent } from './admin-pages/admin-page-delete/admin-
 import { UserScrollbarComponent } from './user-pages/user-scrollbar/user-scrollbar.component';
 import { AdminScrollbarComponent } from './admin-pages/admin-scrollbar/admin-scrollbar.component';
 import { ShowCardsDirective } from './user-pages/user-page-packs/show-cards/show-cards.directive';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -39,6 +40,7 @@ import { ShowCardsDirective } from './user-pages/user-page-packs/show-cards/show
     UserScrollbarComponent,
     AdminScrollbarComponent,
     ShowCardsDirective,
+    RegisterComponent,
     
   ],
   imports: [
@@ -48,6 +50,7 @@ import { ShowCardsDirective } from './user-pages/user-page-packs/show-cards/show
     AppRoutingModule,
     MatListModule,
     HttpClientModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],

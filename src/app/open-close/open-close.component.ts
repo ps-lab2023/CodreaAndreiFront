@@ -13,6 +13,7 @@ import { UserService } from '../service/user.service'
 import { LoginComponent } from '../login/login.component';
 import { User } from '../model/User';
 
+import * as JsonToXML from 'js2xmlparser';
 
 @Component({
   selector: 'app-open-close',
@@ -68,6 +69,14 @@ export class OpenCloseComponent {
     this.userService.login(this.loginComponent.username.value, this.loginComponent.password.value).subscribe((res: any) => {
       console.log(res.body);
       if (res.body != null) {
+        // json to xml
+
+        console.log(JsonToXML.parse("login-info", res.body));
+        
+        //const fs = require('fs');
+        //fs.writeFileSync('./login-info.txt', JsonToXML.parse("login-info", res.body));
+        
+
         localStorage.setItem('id', res.body.id);
         localStorage.setItem('username', res.body.username);
         if (res.body.role.toLowerCase() == "regular"){

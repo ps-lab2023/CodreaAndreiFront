@@ -22,7 +22,7 @@ export class UserPageCardsComponent implements OnInit, OnDestroy{
   pageNr: number = 0;
   nrOfPages: number = 0;
   cardsPerPage: number = 10;
- getInfo = new getPlayerInfo();
+  getInfo = new getPlayerInfo();
 
 
   constructor(private userService: UserService) {}

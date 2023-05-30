@@ -4,6 +4,9 @@ import { PackService } from '../../service/pack.service';
 import { UserService } from '../../service/user.service';
 import { User } from 'src/app/model/User';
 import { ShowCardsDirective } from './show-cards/show-cards.directive';
+import { getPlayerInfo } from 'src/app/misc/getPlayerInfo';
+import { CardInfo } from 'src/app/model/CardInfo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-page-packs',
@@ -18,9 +21,16 @@ export class UserPagePacksComponent {
   silver_id: bigint | undefined;
   bronze_id: bigint | undefined;
   user: User | undefined;
+  test: number[] = [1, 2, 3, 4]
+  getInfo = new getPlayerInfo();
+  cardsInfo: CardInfo[] = [];
+  nrOfPages: number = 1;
+  pageNr: number = 0;
+  cardsPerPage: number = 10;
 
   constructor(private packService: PackService,
-              private userService: UserService) {}
+              private userService: UserService,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.id = localStorage.getItem("id");
@@ -44,14 +54,26 @@ export class UserPagePacksComponent {
     });
   }
 
+  applyCardStyles(k: number) {
+    let url: string = "url(" + this.cardsInfo[k].cardColorPath + ")";
+    const styles = {'background-image' : url};
+    return styles; 
+  }
 
   buyPack(id_pack: any) {
+    console.log("id_pack: " + id_pack);
     this.userService.buyPack(this.id, id_pack).subscribe();
-
+    this.cardsInfo = this.getInfo.selectCards(this.user?.lastBought!, this.nrOfPages, this.pageNr, this.cardsPerPage);
     let x = document.getElementsByClassName("pack-container");
-    //x[0].setAttribute("style", "display: none");
-    //x[0].
+    x[0].setAttribute("style", "display: none");
+    x = document.getElementsByClassName("card-container");
+    x[0].setAttribute("style", "display: flex");
     console.log("Last bought" + this.user?.lastBought);
+  }
+
+  prevPage() {
+    console.log("PRESS!");
+    location.reload();
   }
 
 }
